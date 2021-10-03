@@ -60,7 +60,6 @@ export const Input = styled.input`
   border-radius: 5px;
 
   text-align: center;
-  font-family: "Roboto", sans-serif;
 `;
 
 export const Text = styled.p`

@@ -46,6 +46,7 @@ export const InfoContainer = styled.div`
   flex-direction: column;
 
   button {
+    max-width: 300px;
     height: 50px;
     background: linear-gradient(87.88deg, #dd1581 -6.21%, #e83741 100%);
   }

@@ -7,7 +7,8 @@ export default createGlobalStyle`
     box-sizing: border-box;
   }
 
-  body {
+  body, input {
     font-family: 'Roboto', sans-serif;
   }
+
 `;
