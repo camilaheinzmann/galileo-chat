@@ -17,6 +17,10 @@ export const Wrapper = styled.div`
     #1c0030 100%
   );
   color: #faf7fa;
+
+  @media (max-width: 767px) {
+    align-items: flex-start;
+  }
 `;
 
 export const Container = styled.div`
@@ -30,14 +34,21 @@ export const Container = styled.div`
   flex-wrap: wrap;
 
   @media (max-width: 767px) {
-    flex-direction: column;
+    flex-direction: column-reverse;
+    margin-top: 2rem;
   }
 `;
 
 export const InfoContainer = styled.div`
   flex: 4;
+  width: 100%;
   display: flex;
   flex-direction: column;
+
+  button {
+    height: 50px;
+    background: linear-gradient(87.88deg, #dd1581 -6.21%, #e83741 100%);
+  }
 `;
 
 export const Title = styled.h1`
@@ -51,6 +62,14 @@ export const Title = styled.h1`
     font-size: 100px;
     font-weight: 900;
   }
+
+  @media (max-width: 767px) {
+    font-size: 60px;
+
+    strong {
+      font-size: 80px;
+    }
+  }
 `;
 
 export const Subtitle = styled.p`
@@ -58,10 +77,15 @@ export const Subtitle = styled.p`
   font-size: 30px;
   line-height: 35px;
   margin-bottom: 2rem;
+
+  @media (max-width: 767px) {
+    font-size: 25px;
+  }
 `;
 
 export const ImageContainer = styled.div`
   flex: 5;
+  width: 100%;
 
   img {
     margin: 0 auto;
@@ -72,7 +96,7 @@ export const ImageContainer = styled.div`
   }
 
   @media (max-width: 767px) {
-    margin-top: 1rem;
+    margin: 1rem 0 2rem;
 
     img {
       max-width: 350px;

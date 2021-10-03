@@ -8,6 +8,7 @@ import {
 } from "./styles";
 
 import LandingImg from "../../assets/img/landing.svg";
+import Button from "../../components/Button";
 
 function Home() {
   return (
@@ -18,7 +19,7 @@ function Home() {
             <strong>GALILEO</strong> chat
           </Title>
           <Subtitle>Crie salas de chat e converse com seus amigos</Subtitle>
-          <button>Entre com o Google</button>
+          <Button>Entre com o Google</Button>
         </InfoContainer>
         <ImageContainer>
           <img src={LandingImg} alt="Pessoas batendo papo" />
