@@ -7,6 +7,7 @@ export const AsideWrapper = styled.aside`
   position: fixed;
   padding: 1rem 0;
   gap: 10px;
+  z-index: 2;
 
   display: flex;
   flex-direction: column;
