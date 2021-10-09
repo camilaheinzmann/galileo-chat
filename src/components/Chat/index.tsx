@@ -1,87 +1,52 @@
-import { Container, Message, MessageDate } from "./styles";
+import { useEffect, useState } from "react";
+import { format } from "date-fns";
+import { useAuth } from "../../hooks/useAuth";
 
-import { ReactComponent as FrameIcon } from "../../assets/frame.svg";
+import { Container, Message, MessageContainer, MessageDate } from "./styles";
 
-const messages = [
-  {
-    id: "454545",
-    name: "Ana",
-    message: "Olá, pessoal!",
-    date: "2009-1-1T8:00:00 to 2009-1-4T7:59:59",
-  },
-  {
-    id: "66666",
-    name: "Luana",
-    message: "Oi gente! Como vocês estão?",
-    date: "2009-1-1T8:00:00 to 2009-1-4T8:01:58",
-  },
-  {
-    id: "645454",
-    name: "Julia",
-    message: "Boa noite!",
-    date: "2009-1-1T8:00:00 to 2009-1-4T10:00:00",
-  },
-  {
-    id: "3434",
-    name: "Luana",
-    message:
-      "Vivamus vitae sollicitudin tellus, luctus dapibus diam. Nullam sagittis lobortis mauris, nec pulvinar libero imperdiet at. Integer rhoncus lacinia dui a ornare. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec id neque sem. Praesent aliquam rutrum mi a ultrices. Nam quis elit vel felis lobortis lacinia sit amet in dui. Ut elit mi, aliquam sit amet pellentesque sit amet, ullamcorper vel ante.",
-    date: "2009-1-1T8:00:00 to 2009-1-4T8:01:58",
-  },
-  {
-    id: "6557668",
-    name: "Julia",
-    message: "Boa tarde!",
-    date: "2009-1-1T8:00:00 to 2009-1-4T10:00:00",
-  },
-  {
-    id: "77777",
-    name: "Luana",
-    message: "Oi gente",
-    date: "2009-1-1T8:00:00 to 2009-1-4T8:01:58",
-  },
-  {
-    id: "11111",
-    name: "Julia",
-    message: "Olá!",
-    date: "2009-1-1T8:00:00 to 2009-1-4T10:00:00",
-  },
-  {
-    id: "22222",
-    name: "Luana",
-    message: "Oi?",
-    date: "2009-1-1T8:00:00 to 2009-1-4T8:01:58",
-  },
-  {
-    id: "23232",
-    name: "Julia",
-    message: "Teste",
-    date: "2009-1-1T8:00:00 to 2009-1-4T10:00:00",
-  },
-  {
-    id: "44444",
-    name: "Ana",
-    message: "Tchau",
-    date: "2009-1-1T8:00:00 to 2009-1-4T8:01:58",
-  },
-  {
-    id: "55555",
-    name: "Julia",
-    message: "Bom dia!",
-    date: "2009-1-1T8:00:00 to 2009-1-4T10:00:00",
-  },
-];
+type MessageType = {
+  id: string;
+  content: string;
+  author: {
+    authorId: string;
+    avatar: string;
+    name: string;
+  };
+  date: Date;
+};
 
-function Chat() {
+type ChatProps = {
+  allMessages: MessageType[];
+};
+
+function Chat({ allMessages }: ChatProps) {
+  const { user } = useAuth();
+
+  const [messages, setMessages] = useState<MessageType[]>([]);
+
+  useEffect(() => {
+    const sortedMessages = allMessages.sort((a, b) =>
+      new Date(a.date) > new Date(b.date) ? -1 : 1
+    );
+    setMessages(sortedMessages);
+  }, [allMessages]);
+
   return (
     <Container>
       {messages.map((message) => (
-        <Message key={message.id}>
-          <FrameIcon />
-          <span>{message.name}</span>
-          <p>{message.message}</p>
-          <MessageDate>17:30</MessageDate>
-        </Message>
+        <MessageContainer
+          key={message.id}
+          className={
+            user && user.id === message.author.authorId ? "outgoing" : ""
+          }
+        >
+          <img src={message.author.avatar} alt="Avatar" />
+          <Message>
+            <span>{message.author.name}</span>
+            <p>{message.content}</p>
+            <MessageDate>{format(new Date(message.date), "HH:mm")}</MessageDate>
+          </Message>
+        </MessageContainer>
       ))}
     </Container>
   );

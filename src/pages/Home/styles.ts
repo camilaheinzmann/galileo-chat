@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Button from "../../components/Button";
 
 export const Wrapper = styled.div`
   width: 100%;
@@ -26,19 +27,15 @@ export const Container = styled.div`
     max-width: 100%;
     height: 40px;
   }
-
-  > button {
-    background: linear-gradient(87.88deg, #dd1581 -6.21%, #e83741 100%);
-  }
 `;
 
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
+`;
 
-  button {
-    background: #240141;
-  }
+export const GradientButton = styled(Button)`
+  background: linear-gradient(87.88deg, #dd1581 -6.21%, #e83741 100%);
 `;
 
 export const Title = styled.h2`

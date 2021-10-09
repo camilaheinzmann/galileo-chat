@@ -10,4 +10,10 @@ export const ButtonContainer = styled.button`
   border-radius: 5px;
   color: #fff;
   cursor: pointer;
+  background: #240141;
+
+  &:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
 `;

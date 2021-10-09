@@ -22,6 +22,12 @@ export const AsideWrapper = styled.aside`
     #1c0030 100%
   );
 
+  > img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+
   @media (max-width: 767px) {
     width: 100%;
     height: 80px;

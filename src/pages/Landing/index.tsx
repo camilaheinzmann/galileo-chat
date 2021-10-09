@@ -1,7 +1,9 @@
 import { useHistory } from "react-router";
+import { useAuth } from "../../hooks/useAuth";
 
 import {
   Container,
+  GradientButton,
   ImageContainer,
   InfoContainer,
   Subtitle,
@@ -9,14 +11,16 @@ import {
   Wrapper,
 } from "./styles";
 
-import Button from "../../components/Button";
-
 import LandingImg from "../../assets/img/landing.svg";
 
 function Landing() {
   const history = useHistory();
+  const { user, signInWithGoogle } = useAuth();
 
-  function handleSigninWithGoogle() {
+  async function handleEnterToApp() {
+    if (!user) {
+      await signInWithGoogle();
+    }
     history.push("/app");
   }
 
@@ -28,7 +32,9 @@ function Landing() {
             <strong>GALILEO</strong> chat
           </Title>
           <Subtitle>Crie salas de chat e converse com seus amigos</Subtitle>
-          <Button onClick={handleSigninWithGoogle}>Entre com o Google</Button>
+          <GradientButton onClick={handleEnterToApp}>
+            Entre com o Google
+          </GradientButton>
         </InfoContainer>
         <ImageContainer>
           <img src={LandingImg} alt="Pessoas batendo papo" />

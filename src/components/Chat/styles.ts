@@ -1,28 +1,48 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  max-height: 100%;
+  height: 100%;
   overflow-y: auto;
 
   display: flex;
   flex-direction: column-reverse;
 
-  padding: 10px 60px;
+  padding: 10px;
 
   @media (max-width: 767px) {
     padding: 10px 20px;
   }
 `;
 
+export const MessageContainer = styled.div`
+  display: flex;
+  align-items: flex-start;
+  max-width: 100%;
+
+  gap: 10px;
+
+  img {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+
+  &.outgoing {
+    margin-left: auto;
+    flex-direction: row-reverse;
+  }
+`;
+
 export const Message = styled.div`
   position: relative;
-  max-width: 350px;
+  max-width: 80%;
 
   border: 1px solid #ccc;
   border-radius: 5px;
 
   margin-bottom: 10px;
-  padding: 10px 30px 10px 10px;
+  padding: 10px 60px 10px 10px;
 
   span {
     font-size: 13px;
@@ -32,9 +52,11 @@ export const Message = styled.div`
 
   p {
     font-size: 13px;
+    word-wrap: break-word;
   }
 
   svg {
+    display: none;
     position: absolute;
     left: -23px;
     top: -1px;

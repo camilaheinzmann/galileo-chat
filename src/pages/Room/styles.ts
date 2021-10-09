@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Button from "../../components/Button";
 
 export const Wrapper = styled.div`
   width: 100%;
@@ -35,12 +36,6 @@ export const Header = styled.header`
     font-size: 14px;
   }
 
-  > button {
-    height: 40px;
-    width: 230px;
-    background: linear-gradient(87.88deg, #dd1581 -6.21%, #e83741 100%);
-  }
-
   @media (max-width: 767px) {
     flex-direction: column-reverse;
     align-items: stretch;
@@ -48,10 +43,16 @@ export const Header = styled.header`
     button {
       width: 100%;
     }
+  }
+`;
 
-    > button {
-      margin-bottom: 10px;
-    }
+export const GradientButton = styled(Button)`
+  background: linear-gradient(87.88deg, #dd1581 -6.21%, #e83741 100%);
+  height: 40px;
+  width: 230px;
+
+  @media (max-width: 767px) {
+    margin-bottom: 10px;
   }
 `;
 
@@ -101,7 +102,7 @@ export const HeaderChat = styled.header`
   }
 `;
 
-export const FooterChat = styled.footer`
+export const FooterChat = styled.form`
   height: 60px;
   padding: 20px;
 
@@ -112,7 +113,12 @@ export const FooterChat = styled.footer`
   align-items: center;
   gap: 10px;
 
-  > svg {
+  img {
+    border-radius: 50%;
+  }
+
+  > svg,
+  img {
     height: 30px;
     width: 30px;
   }
@@ -120,7 +126,7 @@ export const FooterChat = styled.footer`
 
 export const Input = styled.input`
   height: 35px;
-  flex: 1;
+  width: 100%;
 
   padding: 12px;
   outline: 0;
@@ -130,6 +136,7 @@ export const Input = styled.input`
 `;
 
 export const SendButton = styled.button`
+  min-width: 35px;
   width: 35px;
   height: 35px;
 
@@ -142,5 +149,10 @@ export const SendButton = styled.button`
   > svg {
     width: 20px;
     height: 20px;
+  }
+
+  &:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
   }
 `;

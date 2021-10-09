@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Button from "../../components/Button";
 
 export const Wrapper = styled.div`
   width: 100%;
@@ -44,12 +45,12 @@ export const InfoContainer = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
+`;
 
-  button {
-    max-width: 300px;
-    height: 50px;
-    background: linear-gradient(87.88deg, #dd1581 -6.21%, #e83741 100%);
-  }
+export const GradientButton = styled(Button)`
+  background: linear-gradient(87.88deg, #dd1581 -6.21%, #e83741 100%);
+  max-width: 300px;
+  height: 50px;
 `;
 
 export const Title = styled.h1`
