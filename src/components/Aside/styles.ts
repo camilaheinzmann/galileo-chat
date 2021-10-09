@@ -30,12 +30,18 @@ export const AsideWrapper = styled.aside`
 
   @media (max-width: 767px) {
     width: 100%;
-    height: 80px;
+    height: 60px;
 
     flex-direction: row;
     justify-content: space-between;
     padding: 0 1rem;
-    bottom: 0;
+    top: 0;
+
+    > img,
+    svg {
+      width: 40px;
+      height: 40px;
+    }
   }
 `;
 
@@ -48,4 +54,14 @@ export const Button = styled.button`
   background: linear-gradient(87.88deg, #dd1581 -6.21%, #e83741 100%);
 
   cursor: pointer;
+
+  @media (max-width: 767px) {
+    width: 40px;
+    height: 40px;
+
+    svg {
+      width: 22px;
+      height: 22px;
+    }
+  }
 `;

@@ -3,17 +3,13 @@ import Button from "../../components/Button";
 
 export const Wrapper = styled.div`
   width: 100%;
-  min-height: 100vh;
   padding: 40px 20px 20px 100px;
-
-  background-color: #faf7fa;
 
   display: flex;
   justify-content: center;
 
   @media (max-width: 767px) {
-    padding: 20px;
-    padding-bottom: 100px;
+    padding: 80px 20px 20px;
   }
 `;
 
@@ -68,7 +64,7 @@ export const ChatContainer = styled.div`
   justify-content: space-between;
 
   @media (max-width: 767px) {
-    height: 400px;
+    height: 60vh;
   }
 `;
 
@@ -86,6 +82,10 @@ export const HeaderChat = styled.header`
   h1 {
     font-size: 20px;
     color: #240141;
+
+    max-width: 70%;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
   }
 
   p {

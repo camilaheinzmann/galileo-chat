@@ -10,8 +10,7 @@ export const Wrapper = styled.div`
   justify-content: center;
 
   @media (max-width: 767px) {
-    padding: 1rem;
-    padding-bottom: 100px;
+    padding: 60px 20px 10px;
   }
 `;
 

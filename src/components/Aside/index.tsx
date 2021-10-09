@@ -5,18 +5,20 @@ import { ReactComponent as PersonIcon } from "../../assets/icons/person.svg";
 import { ReactComponent as LogoutIcon } from "../../assets/icons/logout.svg";
 
 function Aside() {
-  const { user } = useAuth();
+  const { user, signOut } = useAuth();
 
   return (
     <AsideWrapper>
       {user ? (
-        <img src={user?.avatar} alt={user?.name} title={user.name} />
+        <>
+          <img src={user?.avatar} alt={user?.name} title={user.name} />
+          <Button title="Sair">
+            <LogoutIcon onClick={signOut} />
+          </Button>
+        </>
       ) : (
         <PersonIcon />
       )}
-      <Button title="Sair">
-        <LogoutIcon />
-      </Button>
     </AsideWrapper>
   );
 }

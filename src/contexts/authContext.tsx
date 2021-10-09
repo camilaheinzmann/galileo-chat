@@ -1,4 +1,5 @@
 import { ReactNode, useEffect, useState, createContext } from "react";
+import { useHistory } from "react-router";
 import { auth, firebase } from "../services/firebase";
 
 type User = {
@@ -10,6 +11,7 @@ type User = {
 type AuthContextType = {
   user: User | undefined;
   signInWithGoogle: () => Promise<void>;
+  signOut: () => Promise<void>;
 };
 
 type AuthContextProviderProps = {
@@ -19,6 +21,8 @@ type AuthContextProviderProps = {
 export const AuthContext = createContext({} as AuthContextType);
 
 export function AuthContextProvider({ children }: AuthContextProviderProps) {
+  const history = useHistory();
+
   const [user, setUser] = useState<User>();
 
   async function signInWithGoogle() {
@@ -39,6 +43,19 @@ export function AuthContextProvider({ children }: AuthContextProviderProps) {
         avatar: photoURL,
       });
     }
+  }
+
+  async function signOut() {
+    await firebase
+      .auth()
+      .signOut()
+      .then(() => {
+        setUser(undefined);
+        history.push("/");
+      })
+      .catch((error) => {
+        alert("Ocorreu um erro ao fazer logout! Por favor, tente novamente.");
+      });
   }
 
   useEffect(() => {
@@ -64,7 +81,7 @@ export function AuthContextProvider({ children }: AuthContextProviderProps) {
   }, []);
 
   return (
-    <AuthContext.Provider value={{ user, signInWithGoogle }}>
+    <AuthContext.Provider value={{ user, signInWithGoogle, signOut }}>
       {children}
     </AuthContext.Provider>
   );

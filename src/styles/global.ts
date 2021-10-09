@@ -7,6 +7,10 @@ export default createGlobalStyle`
     box-sizing: border-box;
   }
 
+  body {
+    background-color: #faf7fa;
+  }
+
   body, input {
     font-family: 'Roboto', sans-serif;
   }
