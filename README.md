@@ -13,7 +13,7 @@ Para executar este projeto é necessário inicialmente realizar cadastro no [con
 - Adicionar autenticação pelo Google;
 - Criar um Realtime Database (você pode iniciar no modo de teste e configurar as regras do banco de dados posteriormente).
 
-Após o download (necessário _[node.js](https://nodejs.org/)_ instalado):
+Após o download (é necessário o _[node.js](https://nodejs.org/)_ instalado):
 
 - Copiar as variáveis ambiente que constam no arquivo `.env.example`, criar novo arquivo `.env` no diretório raiz e colar;
 - Preencher `.env` conforme dados disponibilizados pelo Firebase (na tela de configurações do projeto);
