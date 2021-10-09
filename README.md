@@ -1,6 +1,6 @@
 # GALILEOchat
 
-![GALILEOchat](https://github.com/camilaheinzmann/galileo-chat/blob/main/src/assets/img/galileo.png)
+[![GALILEOchat](https://github.com/camilaheinzmann/galileo-chat/blob/main/src/assets/img/galileo.png)](https://galileo-chat.vercel.app/)
 
 Um chat básico desenvolvido com react, typescript, styled-components e firebase 😁
 
