@@ -1,5 +1,7 @@
 # GALILEOchat
 
+![GALILEOchat](https://github.com/camilaheinzmann/galileo-chat/blob/main/src/assets/img/galileo.png)
+
 Um chat básico desenvolvido com react, typescript, styled-components e firebase 😁
 
 ## Instruções de execução
